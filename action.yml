@@ -1,18 +1,26 @@
-name: 'The name of your action here'
+name: 'Dev articles publisher'
 description: 'Provide a description here'
 author: 'Your name or organization here'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+  searchPatterns:
+    description: 'A comma separated list of patterns used to search for Markdown files to transform.'
+    required: false
+    default: '**/*.md'
+  ignorePatterns:
+    description: 'The list of patterns for files to exclude.'
+    required: false
+    default: 'node_modules/**'
+  hashnodeApiKey:
+    description: 'The API key to use for Hashnode'
+    required: false
+  devToApiKey:
+    description: 'The API key to use for DevTo'
+    required: false
+  mediumApiKey:
+    description: 'The API key to use for Medium'
+    required: false
+    
 
 runs:
   using: node20
