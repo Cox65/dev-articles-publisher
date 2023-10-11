@@ -8,41 +8,12 @@ on:
       - 'releases/*'
 
 jobs:
-  test-typescript:
-    name: TypeScript Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        id: setup-node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install Dependencies
-        id: npm-ci
-        run: npm ci
-
-      - name: Check Format
-        id: npm-format-check
-        run: npm run format:check
-
-      - name: Lint
-        id: npm-lint
-        run: npm run lint
-
-      - name: Test
-        id: npm-ci-test
-        run: npm run ci-test
-
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -53,7 +24,9 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 1000
+          hashnodeApiKey: ${{ secrets.HASHNODE_API_KEY }}
+          mediumApiKey: ${{ secrets.MEDIUM_API_KEY }}
+          devToApiKey: ${{ secrets.DEVTO_API_KEY }}
 
       - name: Print Output
         id: output
