@@ -1,0 +1,6 @@
+export const {
+  GITHUB_SERVER_URL,
+  GITHUB_REPOSITORY,
+  GITHUB_REF_NAME,
+  GITHUB_ACTOR
+} = process.env
