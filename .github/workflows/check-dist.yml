@@ -33,19 +33,24 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: npm
+          node-version: 20
+          cache: pnpm
 
       - name: Install Dependencies
         id: install
-        run: npm ci
+        run: pnpm i
 
       - name: Build dist/ Directory
         id: build
-        run: npm run bundle
+        run: pnpm run bundle
 
       - name: Compare Expected and Actual Directories
         id: diff
