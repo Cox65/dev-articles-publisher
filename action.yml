@@ -2,17 +2,15 @@ name: 'The name of your action here'
 description: 'Provide a description here'
 author: 'Your name or organization here'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+  searchPatterns:
+    description: 'A comma separated list of patterns used to search for Markdown files to transform.'
+    required: false
+    default: '**/*.md'
+  ignorePatterns:
+    description: 'The list of patterns for files to exclude.'
+    required: false
+    default: 'node_modules/**'
 
 runs:
   using: node20
