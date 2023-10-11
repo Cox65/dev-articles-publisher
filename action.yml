@@ -1,0 +1,27 @@
+name: 'Dev articles publisher'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+
+inputs:
+  searchPatterns:
+    description: 'A comma separated list of patterns used to search for Markdown files to transform.'
+    required: false
+    default: '**/*.md'
+  ignorePatterns:
+    description: 'The list of patterns for files to exclude.'
+    required: false
+    default: 'node_modules/**'
+  hashnodeApiKey:
+    description: 'The API key to use for Hashnode'
+    required: false
+  devToApiKey:
+    description: 'The API key to use for DevTo'
+    required: false
+  mediumApiKey:
+    description: 'The API key to use for Medium'
+    required: false
+    
+
+runs:
+  using: node20
+  main: dist/index.js
